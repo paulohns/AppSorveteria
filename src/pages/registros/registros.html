@@ -1,0 +1,65 @@
+<!--
+  Generated template for the Registros page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Fechamento diário de caixa</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div>
+    <form #cadastroForm="ngForm" novalidate>
+      <ion-item>
+        <ion-label color="primary">Data</ion-label>
+        <ion-note item-right>
+          {{registro.data | date: 'dd/MM/yyyy'}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Responsavel</ion-label>
+        <ion-note item-right>
+          {{registro.responsavel}}
+        </ion-note>
+      </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label>Finalidade</ion-label>
+          <ion-select type="finalidade" name="finalidade" #finalidade="ngModel" [(ngModel)]="registro.finalidade" interface="action-sheet">
+            <ion-option value="despesa">Despesa</ion-option>
+            <ion-option value="entrada">Entrada</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>Tipo de despesa</ion-label>
+          <ion-select type="descricao" name="descricao" #descricao="ngModel" [(ngModel)]="registro.descricao" interface="action-sheet">
+            <ion-option value="mercado">Mercado</ion-option>
+            <ion-option value="diario">Fechamento diário</ion-option>
+            <ion-option value="freela">Freelance</ion-option>
+            <ion-option value="outro">Outros</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-label floating color="primary">Dinheiro</ion-label>
+        <ion-input type="valorDinheiro" name="valorDinheiro" #valorDinheiro="ngModel" [(ngModel)]="registro.valorDinheiro"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="primary">Cartão</ion-label>
+        <ion-input type="valorCartao" name="valorCartao" #valorCartao="ngModel" [(ngModel)]="registro.valorCartao"> </ion-input>
+      </ion-item>
+      
+      <button ion-button type="submit" (click)="doSalvar(cadastroForm)">Salvar</button>
+    </form>
+  </div>
+
+</ion-content>

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      App Sorveteria
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="currentUser">
+    <form #logoutForm="ngForm" novalidate>
+      <div>
+        <ion-card>
+          <ion-card-header>
+            <ion-icon name="md-menu" item-left></ion-icon>
+          </ion-card-header>
+          <ion-list>
+            <button ion-item (click)="goToRegistros()">
+              <ion-icon name="md-add-circle" item-left></ion-icon>
+              Inserir registro
+            </button>
+
+            <button ion-item (click)="goToConsulta()">
+              <ion-icon name="md-search" item-left></ion-icon>
+              Consultar registros
+            </button>
+
+            <button ion-item>
+              <ion-icon name="md-cash" item-left></ion-icon>
+              Fechamento Mensal
+            </button>
+
+            <button ion-item (click)="doLogout()">
+              <ion-icon name="md-log-out" item-left></ion-icon>
+              Logout
+            </button>
+
+          </ion-list>
+        </ion-card>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="!currentUser">
+    <form #loginForm="ngForm" novalidate>
+      <ion-content>
+        <ion-icon name="md-mail" item-left></ion-icon>
+        <ion-icon name="logo-google" item-left></ion-icon>
+        <ion-icon name="logo-facebook" item-left></ion-icon>
+      </ion-content>
+      <br/>
+      <ion-item>
+        <ion-label floating color="primary">E-mail</ion-label>
+        <ion-input type="email" name="email" #email="ngModel" [(ngModel)]="credentials.email"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating color="primary">Password</ion-label>
+        <ion-input type="password" name="password" #password="ngModel" [(ngModel)]="credentials.password"> </ion-input>
+      </ion-item>
+      <button ion-button type="submit" (click)="doLogin(loginForm)">Login</button>
+      <button ion-button (click)="doCadastro()">Cadastrar</button>
+    </form>
+  </div>
+
+
+</ion-content>

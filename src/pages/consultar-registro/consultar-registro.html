@@ -1,0 +1,52 @@
+<!--
+  Generated template for the ConsultarRegistro page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Consultar Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>Preencha o filtro para pesquisa</h1>
+  <form #cadastroForm="ngForm" novalidate>
+    <ion-item>
+      <ion-label>Data inicial</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="filtro.dataInicial" [ngModelOptions]="{standalone: true}"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Data Final</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="filtro.dataFinal" [ngModelOptions]="{standalone: true}"></ion-datetime>
+    </ion-item>
+    <br />
+    <ion-list>
+        <ion-item>
+          <ion-label>Finalidade</ion-label>
+          <ion-select type="finalidade" name="finalidade" #finalidade="ngModel" [(ngModel)]="filtro.finalidade" interface="action-sheet">
+            <ion-option value="despesa">Despesa</ion-option>
+            <ion-option value="entrada">Entrada</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      
+      <ion-list>
+        <ion-item>
+          <ion-label>Tipo de despesa</ion-label>
+          <ion-select type="descricao" name="descricao" #descricao="ngModel" [(ngModel)]="filtro.descricao" interface="action-sheet">
+            <ion-option value="mercado">Mercado</ion-option>
+            <ion-option value="diario">Fechamento diário</ion-option>
+            <ion-option value="freela">Freelance</ion-option>
+            <ion-option value="outro">Outros</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>   
+    <br />  
+    <button ion-button type="submit" (click)="doPesquisar(cadastroForm)">Pesquisar</button>
+  </form>
+</ion-content>

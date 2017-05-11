@@ -1,0 +1,11 @@
+
+Gerar pagina: ionic g page resultadoConsulta
+Rodar na web: ionic serve
+Add plataforma: ionic platform add android
+Rodar no android: ionic run android
+Instalar pacotes: npm install firebase --ambient --save
+Criar provider: ionic g provider MyDataService
+para tentar resolver problema da tela em branco:
+
+cordova plugin add cordova-plugin-crosswalk-webview
+
